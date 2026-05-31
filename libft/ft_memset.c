@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 09:17:15 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/05/18 19:26:42 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/05/30 10:18:02 by goliat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,10 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	return (s);
+}
+
+int	main()
+{
+	char str[15] = "hola mundo";
+	printf("%s", ft_memset( str, 'Y', 4));
 }

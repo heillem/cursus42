@@ -1,21 +1,20 @@
 #include <stdio.h>
 
-char	ft_strchr(const char *s, char x)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*s)
+	while (n-- && (*s1 || *s2))
 	{
-		if (*s == x)
-			return (*s);
-		*s++;
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
 	}
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc <= 1 || argc > 3)
+	if (argc != 3)
 		return (1);
-	if (argc > 1)
-		printf("%c", ft_strchr(argv[1], 'o'));
-	return (0);
+	printf("%d", ft_strncmp(argv[1], argv[2], 5));
 }

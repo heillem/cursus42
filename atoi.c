@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 09:17:15 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 11:38:00 by vicaguil         ###   ########.fr       */
+/*   Created: 2026/05/28 11:37:46 by vicaguil          #+#    #+#             */
+/*   Updated: 2026/05/28 17:06:10 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+int	satoi(const char *s)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	int	sign;
+	int	result;
 
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	sign = 1;
+	result = 0;
+	while (*s == ' ' || (*s >= '\t' && *s <= '\r'))
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		ptr[i] = (unsigned char)c;
-		i++;
+		if (*s == '-')
+			sign = -1;
+		s++;
 	}
-	return (s);
+	while (*s >= '0' && *s <= '9')
+	{
+		result = result * 10 + (*s - '0');
+		s++;
+	}
+	return (sign * result);
 }
 
-/*int	main(void)
+int	main(void)
 {
-	char str[15] = "hola mundo";
-	printf("%s", ft_memset(str, 'Y', 4));
-}*/
+	char *s = "-123";
+	
+	printf("%d\n", satoi(s));
+}

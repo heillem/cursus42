@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 18:04:32 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/05/19 20:00:00 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/06/01 12:36:58 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchar(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char		uc;
-	char				*last;
+	unsigned char	uc;
+	char			*last;
 
 	uc = (unsigned char)c;
 	last = NULL;
@@ -27,7 +27,7 @@ char	*ft_strrchar(const char *s, int c)
 		}
 		s++;
 	}
-	if (uc == 0)
+	if (uc == '\0')
 		return ((char *)s);
 	return (last);
 }

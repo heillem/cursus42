@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:18:01 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/05/30 12:38:21 by goliat           ###   ########.fr       */
+/*   Updated: 2026/06/01 11:37:02 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-int	main()
+/*int	main(void)
 {
 	char str1[] = "hola mundo";
 	char str2[] = "coño";
 	printf("%s", ft_memcpy(str1, str2, 4));
-}
+}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 20:48:09 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/05/31 18:46:03 by goliat           ###   ########.fr       */
+/*   Updated: 2026/06/01 11:31:00 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*p;
 	unsigned char		uc;
-		
+
 	p = s;
 	uc = (unsigned char)c;
 	while (n--)
@@ -28,11 +28,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 
-int	main()
+/*int	main(void)
 {
-	char *palabra = "hola";
-	char *resultado;
+	char	*palabra;
+	char	*resultado;
+
+	palabra = "hola";
 	resultado = ft_memchr(palabra, 'l', 5);
-	//resultado = ft_memchr(palabra, 'x', 5);
+	// resultado = ft_memchr(palabra, 'x', 5);
 	printf("%p", resultado);
-}
+}*/

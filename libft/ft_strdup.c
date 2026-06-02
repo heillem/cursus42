@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/19 20:01:32 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 21:06:53 by vicaguil         ###   ########.fr       */
+/*   Created: 2026/06/01 20:19:16 by vicaguil          #+#    #+#             */
+/*   Updated: 2026/06/01 20:36:05 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
+	char	*copy;
+	size_t	len;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	copy = (char *)malloc(len + 1);
+	if (!copy)
+		return (NULL);
+	ft_memcpy(copy, s, len + 1);
+	return (copy);
 }

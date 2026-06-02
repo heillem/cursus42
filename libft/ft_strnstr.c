@@ -3,37 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 12:18:27 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/05/26 14:20:47 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/06/01 21:04:43 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *str, const char *ptr, size_t len)
 {
-	size_t needle_len;
-	size_t i;
+	size_t	ptr_len;
+	size_t	i;
 
-	needle_len = 0;
-	while (needle[needle_len])
-		needle_len++;
-	if (needle_len == 0)
-		return ((char *)haystack);
+	ptr_len = 0;
+	while (ptr[ptr_len])
+		ptr_len++;
+	if (ptr_len == 0)
+		return ((char *)str);
 	i = 0;
-	while (i + needle_len <= len && haystack[i])
+	while (i + ptr_len <= len && str[i])
 	{
-		if(ft_memcmp(haystack + i, needle, needle_len) == 0)
-			return ((char *)haystack + i);
+		if (ft_memcmp(str + i, ptr, ptr_len) == 0)
+			return ((char *)str + i);
 		i++;
 	}
 	return (NULL);
 }
 
-int	main()
+int	main(void)
 {
-	ft_strnstr("hola mundo", "mun", 10);
-	printf("%s", ft_strnstr());
+	printf("%s", ft_strnstr("hola mundo", "mun", 10));
 }

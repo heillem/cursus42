@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnumber_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/19 20:01:32 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 21:06:53 by vicaguil         ###   ########.fr       */
+/*   Created: 2026/06/01 22:17:12 by vicaguil          #+#    #+#             */
+/*   Updated: 2026/06/01 22:17:20 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	long int	copia;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	copia = n;
+	if (copia < 0)
 	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		copia = (copia * -1);
+		write(fd, "-", 1);
 	}
-	return (0);
+	if (copia > 9)
+	{
+		ft_putnbr_fd(copia / 10, fd);
+		ft_putchar_fd((copia % 10) + '0', fd);
+	}
+	else
+		ft_putchar_fd(copia + '0', fd);
 }

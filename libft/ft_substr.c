@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/19 20:01:32 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 21:06:53 by vicaguil         ###   ########.fr       */
+/*   Created: 2026/06/01 21:08:28 by vicaguil          #+#    #+#             */
+/*   Updated: 2026/06/01 21:21:08 by vicaguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	size_t	i;
+	char	*sub;
+	size_t	s_len;
+	size_t	sub_len;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	sub_len = ft_strlen(s + start);
+	if (sub_len > len)
+		sub_len = len;
+	sub = (char *)malloc(sub_len + 1);
+	if (!sub)
+		return (NULL);
+	ft_memcpy(sub, s + start, sub_len);
+	sub[sub_len] = '\0';
+	return (sub);
 }

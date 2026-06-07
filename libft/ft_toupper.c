@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 20:27:16 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/05/18 20:30:49 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/06/07 18:04:32 by goliat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int c)
 {
-	if (c > 'a' && c < 'z')
+	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	return (c);
 }

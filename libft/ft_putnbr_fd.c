@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnumber_fd.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 22:17:12 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 22:17:20 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/06/07 17:18:34 by goliat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int	copia;
+	long int	copy;
 
-	copia = n;
-	if (copia < 0)
+	copy = n;
+	if (copy < 0)
 	{
-		copia = (copia * -1);
+		copy = (copy * -1);
 		write(fd, "-", 1);
 	}
-	if (copia > 9)
+	if (copy > 9)
 	{
-		ft_putnbr_fd(copia / 10, fd);
-		ft_putchar_fd((copia % 10) + '0', fd);
+		ft_putnbr_fd(copy / 10, fd);
+		ft_putchar_fd((copy % 10) + '0', fd);
 	}
 	else
-		ft_putchar_fd(copia + '0', fd);
+		ft_putchar_fd(copy + '0', fd);
 }

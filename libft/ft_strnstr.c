@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 12:18:27 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 21:04:43 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/06/07 17:37:26 by goliat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *str, const char *ptr, size_t len)
 	return (NULL);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	printf("%s", ft_strnstr("hola mundo", "mun", 10));
-}
+}*/

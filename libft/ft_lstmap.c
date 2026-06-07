@@ -3,37 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicaguil <vicaguil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goliat <goliat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 22:36:46 by vicaguil          #+#    #+#             */
-/*   Updated: 2026/06/01 22:38:51 by vicaguil         ###   ########.fr       */
+/*   Updated: 2026/06/07 18:13:12 by goliat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
 	t_list	*head;
-	t_list	*tmp;
+	t_list	*node;
+	t_list	*prev;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	head = NULL;
+	prev = NULL;
 	while (lst)
 	{
-		tmp = malloc(sizeof(t_list));
-		if (!tmp)
+		node = ft_lstnew(f(lst->content));
+		if (!node)
 			return (ft_lstclear(&head, del), NULL);
-		tmp->content = f(lst->content);
-		tmp->next = NULL;
 		if (!head)
-			head = tmp;
+			head = node;
 		else
-			new->next = tmp;
-		new = tmp;
+			prev->next = node;
+		prev = node;
 		lst = lst->next;
 	}
 	return (head);
